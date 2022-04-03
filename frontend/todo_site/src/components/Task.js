@@ -5,7 +5,7 @@ function Task(props) {
     return (
       <div>
         <h3>Task: {props.task.name}</h3>
-        <h6>Task List: {props.task.list} </h6>
+        <h6>Task List: {props.task.list.name} </h6>
         <p>Priority: {props.task.priority}</p>
         <p>Due Date: {props.task.due_date}</p>
       </div>

@@ -4,7 +4,11 @@ const tryCatchFetch = async (url, init=null) => {
   try{
     const response = await fetch(url, init)
     if (response.ok){
-      return await response.json()
+      // delete calls do not return a json object, you get 204 from successful delete
+      if (response.status !== 204)
+        return await response.json()
+      else
+        return response
     }
     else{
       throw new Error(`Bad response: ${response.status} ${response.statusText}`)
@@ -47,11 +51,25 @@ const addTask = async (taskObj) => {
   return await tryCatchFetch(url, paramsObj)
 }
 
+
+const deleteTask = async (id) => {
+  let url = BASE_URL + `task/${id}`
+  const paramsObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }
+  console.log("params", paramsObj)
+  return await tryCatchFetch(url, paramsObj)
+}
+
 const exportStuff = {
   fetchAllTaskLists,
   fetchTaskList,
   addTask, 
-  fetchTask
+  fetchTask,
+  deleteTask
 }
 
 export default exportStuff;

@@ -6,6 +6,7 @@ import TaskListAllPage from "./pages/TaskListAllPage"
 import TaskListPage from "./pages/TaskListPage"
 import TaskPage from "./pages/TaskPage"
 import ModifyTaskPage from './pages/ModifyTaskPage';
+import DeleteTaskPage from './pages/DeleteTaskPage';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/task-list/:listID" element={<TaskListPage />} />
         <Route path="/task-list/:listID/task/:taskID" element={<TaskPage />} />
         <Route path="/task-list/:listID/task/create" element={<ModifyTaskPage />} />
+        <Route path="/task-list/:listID/task/:taskID/update" element={<ModifyTaskPage />} />
+        <Route path="/task-list/:listID/task/:taskID/delete" element={<DeleteTaskPage />} />
       </Routes>
       </BrowserRouter>
     </div>
