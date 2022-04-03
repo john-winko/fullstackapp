@@ -1,15 +1,6 @@
 function TaskList(props) {
   const renderTasks = (tasks) => {
-    return tasks && tasks.map((task, index) => <li key={index}>{task}</li>)
-    // if (!tasks) return null
-
-    // // single line implemenation
-    // // return tasks.map((task, index) => <li key={index}>{task}</li>)
-    // return tasks.map((task, index) => {
-    //   return (
-    //     <li key={index}>{task}</li>
-    //   )
-    // })
+    return tasks && tasks.map((task, index) => <li key={index}>{task.name}</li>)
   }
 
   return ( 
