@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {Link, useParams} from 'react-router-dom'
 //api
 import todoAPI from "../api/todoAPI"
+import TaskList from '../components/TaskList'
 
 function TaskListPage(props) {
   //states
@@ -27,39 +28,12 @@ function TaskListPage(props) {
   },[params.listID])
 
   // render helpers
-  const renderTasks = (tasks) => {
-    if (!tasks) return null
-
-    // single line implemenation
-    // return tasks.map((task, index) => <li key={index}>{task}</li>)
-    return tasks.map((task, index) => {
-      return (
-        <li key={index}>{task}</li>
-      )
-    })
-  }
-
-  const renderTaskLists= () => {
-    if (!taskList)
-      return null
-    
-    return (
-      <div>
-        <h3>Task List: {taskList.name}</h3>
-        <h6>Owner: {taskList.user} </h6>
-        <p>Description: {taskList.description}</p>
-        <ul>
-          {renderTasks(taskList.tasks)}
-        </ul>
-      </div>
-    )    
-  }
 
   return ( 
     <div>
       <h2>Task Page</h2>
       <hr/>
-      {renderTaskLists()}
+      {taskList && <TaskList taskList={taskList} />}
     </div>
    );
 }
