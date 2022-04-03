@@ -15,12 +15,14 @@ function ModifyTaskPage(props) {
   // handlers
   const handleFormSubmit = async (event) => {
     event.preventDefault()
+    // console.log(event)
     let taskObj = {
-      name: event.target.element[0].value,
+      name: event.target.elements.name.value,
       list: params.listID,
-      due_date: event.target.element[1].value,
-      priority: event.target.element[2].value,
+      due_date: event.target.elements.due_date.value,
+      priority: event.target.elements.priority.value,
     }
+    console.log("Task obj", taskObj)
     const data = await todoAPI.addTask(taskObj)
     if (data){
       navigate(`/task-list/${params.listID}`)
@@ -29,7 +31,9 @@ function ModifyTaskPage(props) {
 
   return ( 
     <div>
-      <form onSubmit={handleFormSubmit}><br/>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Add Task Page</h2>
+        <hr/>
         <label>Name: </label>
         <input name="name" placeholder="task name" /><br/>
         <label>Due Date: </label>
@@ -42,6 +46,8 @@ function ModifyTaskPage(props) {
           <option value="3">Medium</option>
           <option value="4">Low</option>
         </select>
+        <br/>
+        <button type='submit'>Submit</button>
       </form>
     </div> 
   );

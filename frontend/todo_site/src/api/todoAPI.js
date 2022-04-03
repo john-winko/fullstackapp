@@ -33,11 +33,12 @@ const addTask = async (taskObj) => {
   let url = BASE_URL + `task/`
   const paramsObj = {
     method: "POST",
-    header: {
+    headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(taskObj)
   }
+  console.log("params", paramsObj)
   return await tryCatchFetch(url, paramsObj)
 }
 
