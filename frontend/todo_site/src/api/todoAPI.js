@@ -53,7 +53,7 @@ const addTask = async (taskObj) => {
 
 
 const deleteTask = async (id) => {
-  let url = BASE_URL + `task/${id}`
+  let url = BASE_URL + `task/${id}/`
   const paramsObj = {
     method: "DELETE",
     headers: {
