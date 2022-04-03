@@ -1,6 +1,8 @@
 function TaskPage(props) {
   return (
-    <div></div>
+    <div>
+      <h2>Task Page</h2>
+    </div>
    );
 }
 

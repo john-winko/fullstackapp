@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import TaskListAllPage from "./pages/TaskListAllPage"
 import TaskListPage from "./pages/TaskListPage"
 import TaskPage from "./pages/TaskPage"
+import ModifyTaskPage from './pages/ModifyTaskPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<TaskListAllPage />} />
         <Route path="/task-list/:listID" element={<TaskListPage />} />
         <Route path="/task-list/:listID/task/:taskID" element={<TaskPage />} />
+        <Route path="/task-list/:listID/task/create" element={<ModifyTaskPage />} />
       </Routes>
       </BrowserRouter>
     </div>

@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 //api
 import todoAPI from "../api/todoAPI"
 import TaskList from '../components/TaskList'
@@ -33,7 +33,10 @@ function TaskListPage(props) {
     <div>
       <h2>Task Page</h2>
       <hr/>
+      {taskList && <Link to={`/task-list/${taskList.id}/task/create`}><button>Add Task</button></Link>}
+      <hr />
       {taskList && <TaskList taskList={taskList} />}
+
     </div>
    );
 }

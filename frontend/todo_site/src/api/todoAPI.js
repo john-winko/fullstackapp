@@ -29,9 +29,22 @@ const fetchTaskList = async (id) => {
   return await tryCatchFetch(url)
 }
 
+const addTask = async (taskObj) => {
+  let url = BASE_URL + `task/`
+  const paramsObj = {
+    method: "POST",
+    header: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(taskObj)
+  }
+  return await tryCatchFetch(url, paramsObj)
+}
+
 const exportStuff = {
   fetchAllTaskLists,
-  fetchTaskList
+  fetchTaskList,
+  addTask
 }
 
 export default exportStuff;
