@@ -1,6 +1,13 @@
+import { Link } from "react-router-dom";
+
 function TaskList(props) {
   const renderTasks = (tasks) => {
-    return tasks && tasks.map((task, index) => <li key={index}>{task.name}</li>)
+    return tasks && tasks.map((task, index) => {
+      return (        
+        <li key={index}>
+          <Link to={`/task-list/${task.list}/task/${task.id}`}>{task.name}</Link>
+        </li>
+    )})    
   }
 
   return ( 
