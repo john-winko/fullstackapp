@@ -24,6 +24,11 @@ const fetchAllTaskLists = async () => {
   return await tryCatchFetch(url)
 }
 
+const fetchTask = async (id) => {
+  let url = BASE_URL + `task/${id}`
+  return await tryCatchFetch(url)
+}
+
 const fetchTaskList = async (id) => {
   let url = BASE_URL + `task-list/${id}`
   return await tryCatchFetch(url)
@@ -45,7 +50,8 @@ const addTask = async (taskObj) => {
 const exportStuff = {
   fetchAllTaskLists,
   fetchTaskList,
-  addTask
+  addTask, 
+  fetchTask
 }
 
 export default exportStuff;
