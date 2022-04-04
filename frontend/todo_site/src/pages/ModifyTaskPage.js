@@ -45,12 +45,13 @@ function ModifyTaskPage(props) {
         <h2>Add Task Page</h2>
         <hr/>
         <label>Name: </label>
-        <input name="name" placeholder="task name" value={(task && task.name) || ""}/><br/>
+        <input name="name" placeholder="task name" defaultValue={task && task.name}/><br/>
         <label>Due Date: </label>
-        <input name='due_date' /><br/>
+        <input name='due_date' defaultValue={task && task.due_date}/><br/>
         <label>Priority: </label>
         {/* this could be synced with backend so its not created manually */}
-        <select name='priority' placeholder='priority' >
+        {/* TODO the option needs a tag "selected" to properly select the element */}
+        <select name='priority' placeholder='priority' defaultValue={task && task.priority}>
           <option value="1">Critical</option>
           <option value="2">High</option>
           <option value="3">Medium</option>
