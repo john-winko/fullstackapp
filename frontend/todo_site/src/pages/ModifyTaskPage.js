@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 
 //api
@@ -12,6 +12,16 @@ function ModifyTaskPage(props) {
   const params = useParams()
   const navigate = useNavigate()
   
+  useEffect(()=>{
+    const getTask = async () => {
+      const newTask = await todoAPI.fetchTask(params.taskID)
+      console.log("task", newTask)
+      setTask(newTask)
+    }
+    getTask()
+    
+  },[params.taskID])
+
   // handlers
   const handleFormSubmit = async (event) => {
     event.preventDefault()
@@ -35,7 +45,7 @@ function ModifyTaskPage(props) {
         <h2>Add Task Page</h2>
         <hr/>
         <label>Name: </label>
-        <input name="name" placeholder="task name" /><br/>
+        <input name="name" placeholder="task name" value={(task && task.name) || ""}/><br/>
         <label>Due Date: </label>
         <input name='due_date' /><br/>
         <label>Priority: </label>

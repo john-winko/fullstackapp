@@ -49,7 +49,7 @@ const addTask = async (taskObj) => {
     // issue with backslashes being added from JSON.stringify
     body: JSON.stringify(taskObj)
   }
-  console.log("params", paramsObj)
+  // console.log("params", paramsObj)
   return await tryCatchFetch(url, paramsObj)
 }
 
@@ -62,7 +62,7 @@ const deleteTask = async (id) => {
       "Content-Type": "application/json"
     },
   }
-  console.log("params", paramsObj)
+  // console.log("params", paramsObj)
   return await tryCatchFetch(url, paramsObj)
 }
 
