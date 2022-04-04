@@ -5,7 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Django",
+      "name": "React Frontend",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend/todo_site/src"
+    },
+    {
+      "name": "Django Backend",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}\\backend\\manage.py",
@@ -14,6 +21,13 @@
       ],
       "django": true,
       "justMyCode": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Front/Back ends",
+      "configurations": [ "Django Backend", "React Frontend",],
+      "stopAll": true
     }
   ]
 }
