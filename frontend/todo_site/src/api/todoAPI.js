@@ -4,6 +4,7 @@ const tryCatchFetch = async (url, init=null) => {
   try{
     const response = await fetch(url, init)
     if (response.ok){
+      // return await response.json()
       // delete calls do not return a json object, you get 204 from successful delete
       if (response.status !== 204)
         return await response.json()
@@ -45,6 +46,7 @@ const addTask = async (taskObj) => {
     headers: {
       "Content-Type": "application/json"
     },
+    // issue with backslashes being added from JSON.stringify
     body: JSON.stringify(taskObj)
   }
   console.log("params", paramsObj)
