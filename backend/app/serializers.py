@@ -7,7 +7,7 @@ class TaskListSummarySerializer:
         model = TaskList
         fields = ["id", "name"]
         
-class PrioritySerializer:    
+class PrioritySerializer:
     class Meta:
         model = Priority
         fields = ["id", "level"]    
